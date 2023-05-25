@@ -1,0 +1,9 @@
+[gd_resource type="NoiseTexture2D" load_steps=3 format=3 uid="uid://dkpsogp55rhs5"]
+
+[sub_resource type="Gradient" id="Gradient_c6x4k"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_377t0"]
+
+[resource]
+color_ramp = SubResource("Gradient_c6x4k")
+noise = SubResource("FastNoiseLite_377t0")

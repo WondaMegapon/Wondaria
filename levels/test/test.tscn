@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckuj6edld4ljm"]
+
+[ext_resource type="PackedScene" uid="uid://vyvc6elph1vw" path="res://objects/player/player.tscn" id="1_0pgc7"]
+[ext_resource type="Texture2D" uid="uid://dkpsogp55rhs5" path="res://objects/platform/new_noise_texture_2d.tres" id="2_1qxro"]
+[ext_resource type="Environment" uid="uid://c2lna7umg8nwa" path="res://levels/test/test.tres" id="2_jprp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8m20y"]
+size = Vector3(2.5, 0.15, 2.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aa40p"]
+albedo_texture = ExtResource("2_1qxro")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_r7gfg"]
+
+[node name="start" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0pgc7")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1.44831, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_8m20y")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = SubResource("StandardMaterial3D_aa40p")
+mesh = SubResource("PlaneMesh_r7gfg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.87925, -0.230719, -0.41676, 0.399723, -0.118553, 0.908937, -0.259117, -0.965771, -0.0120137, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_jprp8")
